@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import Home from './Home';
 import Directory from './Directory';
+import About from './About';
+import Contact from './Contact';
 import CampsiteInfo from './CampsiteInfo';
 import { View, Platform } from 'react-native';
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+
+
+const HomeNavigator = createStackNavigator(
+    {
+        Home: { screen: Home }
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+);
 
 const DirectoryNavigator = createStackNavigator(
     {
@@ -24,9 +44,26 @@ const DirectoryNavigator = createStackNavigator(
     }
 );
 
-const HomeNavigator = createStackNavigator(
+const AboutNavigator = createStackNavigator(
     {
-        Home: { screen: Home }
+        Home: { screen: About }
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+);
+
+const ContactNavigator = createStackNavigator(
+    {
+        Home: { screen: Contact }
     },
     {
         navigationOptions: {
@@ -44,7 +81,9 @@ const HomeNavigator = createStackNavigator(
 const MainNavigator = createDrawerNavigator(
     {
         Home: { screen: HomeNavigator },
-        Directory: { screen: DirectoryNavigator }
+        Directory: { screen: DirectoryNavigator },
+        About: { screen: AboutNavigator },
+        Contact: { screen: ContactNavigator }
     },
     {
         drawerBackgroundColor: '#CEC8FF'
@@ -63,5 +102,7 @@ class Main extends Component {
         );
     }
 }
+
+console.disableYellowBox = true;
 
 export default Main;
