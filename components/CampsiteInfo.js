@@ -25,7 +25,7 @@ function RenderCampsite(props) {
 
     const view = React.createRef();
 
-
+    const recognizeComment = ({dx}) => (dx < 200) ? true : false;
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
 
@@ -56,13 +56,21 @@ function RenderCampsite(props) {
                     { cancelable: false }
                 );
             }
+            else if (recognizeComment(gestureState)) {
+                props.onShowModal()
+            }
             return true;
         }
     });
    
     if (campsite) {
         return (
-            <Animatable.View animation='fadeInDown' duration={2000} delay={1000} ref={view}></Animatable.View>
+            <Animatable.View 
+                animation='fadeInDown' 
+                duration={2000} 
+                delay={1000} 
+                ref={view}
+                {...panResponder.panHandlers}>
                 <Card
                     featuredTitle={campsite.name}
                     image={{uri: baseUrl + campsite.image}}>

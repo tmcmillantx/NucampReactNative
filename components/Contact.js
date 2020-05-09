@@ -20,7 +20,7 @@ class Contact extends Component {
 
         return (
             <ScrollView>
-                <Animatable.View animation='fadeInDown' duration={2000} delay={1000}></Animatable.View>
+                <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
                     <Card
                     title="Contact Information"
                     wrapperStyle={{margin: 20}}>

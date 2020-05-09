@@ -3,6 +3,6 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "ma-usi",
-  "https": true
+  "urlRandomness": "hc-djz",
+  "https": false
 }
